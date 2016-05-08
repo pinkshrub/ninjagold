@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>NINJA GOLD TIME</title>
+</head>
+<body>
+	Your Gold: <input type="text" value="{{session['earnings']}}"></input>
+	<div id="working">
+		<div id="farm">
+			<form action="/process_money" method="post">
+				<h4>Farm</h4>
+				<input type="hidden" name="action" value="farm">
+				<p>earns 10 to 20 golds</p>
+				<input type="submit">
+			</form>
+		</div>
+		<div id="cave">
+			<form action="/process_money" method="post">
+				<h4>Cave</h4>
+				<input type="hidden" name="action" value="cave">
+				<p>earns 5 to 10 golds</p>
+				<input type="submit">
+			</form>
+		</div>
+		<div id="house">
+			<form action="/process_money" method="post">
+				<h4>House</h4>
+				<input type="hidden" name="action" value="house">
+				<p>earns 2 to 5 golds</p>
+				<input type="submit">
+			</form>
+		</div>
+		<div id="casino">
+			<form action="/process_money" method="post">
+				<h4>Casino</h4>
+				<input type="hidden" name="action" value="casino">
+				<p>earns -50 to 50 golds</p>
+				<input type="submit">
+			</form>
+		</div>	
+		<div id="dragon">
+			<form action="/process_money" method="post">
+				<h4>Fight a Dragon</h4>
+				<input type="hidden" name="action" value="dragon">
+				<p>maybe you get a whole hoard!!!!</p>
+				<input type="submit">
+			</form>
+		</div>			
+	</div>
+	<div id="didz">
+		Activities:
+		<div>
+			<!-- activities array here -->
+			<ul>
+				{% for activity in session['activities'] %}
+					<li><p>{{activity}}</p></li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+
+</body>
+</html>
